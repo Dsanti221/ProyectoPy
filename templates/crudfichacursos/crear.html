@@ -1,0 +1,60 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Crear Alumno</h1>
+          
+          <form action="crearalumno" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="nombre">Nombre</label> 
+              <div class="col-8">
+                <input id="nombre" name="nombre" placeholder="Nombre del Alumno " type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="apellidos" class="col-4 col-form-label">Apellidos</label> 
+              <div class="col-8">
+                <input id="apellidos" name="apellidos" placeholder="Apellidos Alumno " type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="tipoid" class="col-4 col-form-label">Tipo Identificacion</label> 
+              <div class="col-8">
+                <input id="tipoid" name="tipoid" placeholder="Ejemplo Tarjeta de Identidad" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="numero" class="col-4 col-form-label">Numero Id</label> 
+              <div class="col-8">
+                <input id="numero" name="numero" placeholder="Ejemplo 10023132131" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="fecha" class="col-4 col-form-label">FechaNacimiento</label> 
+              <div class="col-8">
+                <input id="fecha" name="fecha" placeholder="2/02/2001" type="date" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="semestre" class="col-4 col-form-label">Semestre</label> 
+              <div class="col-8">
+                <input id="semestre" name="semestre" type="number" placeholder="9" type="text" class="form-control">
+              </div>
+            </div> 
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="back" class="btn btn-primary" onclick="history.back(); return false;">Volver</button>
+                <button name="submit" type="submit" class="btn btn-success">Crear Alumno</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /page content -->
+{% endblock %}
+
+
+
+

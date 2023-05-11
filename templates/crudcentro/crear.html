@@ -1,0 +1,43 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Crear Centro de Formacion</h1>
+          
+          <form action="crearcentro" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="nombre">Nombre Centro de Formacion</label> 
+              <div class="col-8">
+                <input id="nombre" name="nombre" placeholder="Ej: Universidad de Cundinamarca" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="ext" class="col-4 col-form-label">Extension</label> 
+              <div class="col-8">
+                <input id="ext" name="ext" placeholder="Ej: Chia " type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="dir" class="col-4 col-form-label">Direccion</label> 
+              <div class="col-8">
+                <input id="dir" name="dir" placeholder="Ej: Sector el 40 " type="text" class="form-control">
+              </div>
+            </div>
+             
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="back" class="btn btn-primary" onclick="history.back(); return false;">Volver</button>
+                <button name="submit" type="submit" class="btn btn-success">Crear Centro</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /page content -->
+{% endblock %}
+
+
+
+

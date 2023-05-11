@@ -1,0 +1,43 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Crear Curso</h1>
+          
+          <form action="crearcurso" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="nombre">Nombre</label> 
+              <div class="col-8">
+                <input id="nombre" name="nombre" placeholder="Nombre del Curso " type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="codigo" class="col-4 col-form-label">Codigo</label> 
+              <div class="col-8">
+                <input id="codigo" name="codigo" placeholder="Ejemplo:1234567 " type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="creditoid" class="col-4 col-form-label">Creditos</label> 
+              <div class="col-8">
+                <input id="creditoid" name="creditoid" placeholder="Ejemplo: 3" type="text" class="form-control">
+              </div>
+            </div>
+             
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="back" class="btn btn-primary" onclick="history.back(); return false;">Volver</button>
+                <button name="submit" type="submit" class="btn btn-success">Crear Curso</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /page content -->
+{% endblock %}
+
+
+
+

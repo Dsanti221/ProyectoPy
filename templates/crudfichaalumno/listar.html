@@ -1,0 +1,44 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Listar Ficha Matricula</h1>
+          
+          <button name="agregar" class="btn btn-success" onclick="window.location.href='registro'" ><i class="fa fa-plus"></i>Nueva Maticula</button>
+          <table class="table table-light border-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+               
+                <th scope="col">NombresAlumno</th>
+                <th scope="col">ApellidosAlumno</th>
+                <th scope="col">CursoMatriculado</th>
+                <th scope="col">Fecha Registro</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for u in cursos %}  
+              <tr>
+                <th scope="row">{{u.id}}</th>
+              
+                <td>{{u.alumno.nombre}}</td>
+                <td>{{u.alumno.apellido}}</td>
+                <td>{{u.curso.nombrecurso}}</td>
+                <td>{{u.fecha_registro}}</td>
+                <!--<td>{{u.fecharegistro}}</td> -->
+                <td>
+                  <button class="btn btn-danger" onclick="window.location.href='eliminarfichaalumno/{{u.id}}'" ><i class="fa fa-trash"></i></button>
+                </td>
+                
+              </tr>
+            {% endfor %}  
+            </tbody>
+          
+          </table>
+            
+        </div>
+        <!-- /page content -->
+{% endblock %}

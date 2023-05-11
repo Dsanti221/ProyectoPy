@@ -1,0 +1,73 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          
+          <h1>Listar Alumno</h1>
+          <form action="" method="POST" >
+            {% csrf_token %}
+            <div style="display: inline-block;">
+
+                <input type="text" name="keyword" id="keyword" class="form-control" style="width: 280px; display: inline-block;">
+                <button type="submit" name="search" class="btn btn-primary" style="display: inline-block;"><i class="fa fa-search"></i></button>
+                
+              
+            </div>
+
+          </form>
+          <button name="agregar" class="btn btn-success" onclick="window.location.href='crearalumno'" ><i class="fa fa-plus"></i>Nuevo Usuario</button>
+          <button class="btn btn-primary" id="printTableButton"><i class="glyphicon glyphicon-print"></i>Reporte</button>
+
+          <table class="table table-light border-dark" id="tabla-usuarios">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Tipo ID</th>
+                <th scope="col">Numero ID</th>
+                <th scope="col">Fecha Nacimiento</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Fecha Registro</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for u in alumnoss %}  
+              <tr>
+                <th scope="row">{{u.id}}</th>
+                <td>{{u.nombre}}</td>
+                <td>{{u.apellido}}</td>
+                <td>{{u.tipoidentificacion}}</td>
+                <td>{{u.numeroid}}</td>
+                <td>{{u.fechanacimiento}}</td>
+                <td>{{u.semestre}}</td>
+                <td>{{u.fecharegistro}}</td>
+                <td>
+                  <button class="btn btn-warning" onclick="window.location.href='modificaralumno/{{u.id}}'" ><i class="fa fa-refresh"></i></button>
+                  <button class="btn btn-danger" onclick="window.location.href='eliminaralumno/{{u.id}}'" ><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-primary" onclick="window.location.href='listarfichaalumno'" ><i class="fa fa-address-book-o" aria-hidden="true"></i></button>
+                </td>
+                
+              </tr>
+            {% endfor %}  
+            </tbody>
+          
+          </table>
+
+          <script>
+            document.getElementById("printTableButton").addEventListener("click", function() {
+              window.print();
+            });
+          </script>
+
+             
+
+          
+            
+        </div>
+        <!-- /page content -->
+{% endblock %}
+

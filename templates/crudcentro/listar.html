@@ -1,0 +1,54 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+        <div class="right_col" role="main">
+          <h1>Listar Centros de Formacion</h1>
+          <form action="" method="POST" >
+            {% csrf_token %}
+            
+
+          </form>
+          <button name="agregar" class="btn btn-success" onclick="window.location.href='crearcentro'" ><i class="fa fa-plus"></i>Nuevo Centro</button>
+          <button class="btn btn-primary" id="printTableButton"><i class="glyphicon glyphicon-print"></i>Reporte</button>
+
+          <table class="table table-light border-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre Centro de Formacion</th>
+                <th scope="col">Extension</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Fecha Registro</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for u in centros %}  
+              <tr>
+                <th scope="row">{{u.id}}</th>
+                <td>{{u.nombrecentro}}</td>
+                <td>{{u.extension}}</td>
+                <td>{{u.direccion}}</td>
+                <td>{{u.fecharegistro}}</td>
+                <td>
+                  <button class="btn btn-warning" onclick="window.location.href=''" ><i class="fa fa-refresh"></i></button>
+                  <button class="btn btn-danger" onclick="window.location.href=''" ><i class="fa fa-trash"></i></button>
+                </td>
+                
+              </tr>
+            {% endfor %}  
+            </tbody>
+          
+          </table>
+
+          <script>
+            document.getElementById("printTableButton").addEventListener("click", function() {
+              window.print();
+            });
+          </script>
+            
+        </div>
+        <!-- /page content -->
+{% endblock %}
